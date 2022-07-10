@@ -69,17 +69,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-Task  Description:;
-Convert App into a class component, and add a state object to it with a query text property.
-Create a MyNavbar component for the app, taking as a reference one from the react-bootstrap documentation. Add a text input field to it, with ‘Search here’ as a placeholder.
-Insert the MyNavbar component into the children of App, passing props to it for accessing the query property from the state as well as a method capable of setting the state into App with a new query value. These props are going to be given to the input field into MyNavbar, making it a controlled element.
-Now you should be able to change the query property, into the state of App, from MyNavbar. Pass the query value from the state of App to the BookList component as a prop, so it can access it to restore correctly its filtering logic.
-The next feature will be allowing for one and only selected book at a time. Clicking a new book should de-select the previous one, and load the comments of the freshly selected book.
+Task  Description:
 
-This will involve elevating the selected state property, previously part of SingleBook, to BookList, storing into it the asin of the currently selected book; for achieving this you can follow a procedure similar to the one you just completed.
-
+Improve StriveBooks
+Start from your previous book store application, and apply the following improvements.
+Make sure to refactor the grid of the BookList component in order to to have the book covers on the left, and the CommentArea component always visible on the right (create two columns). Remove CommentArea from the SingleBook component (we just need one).
+Create the initial state for the CommentArea for when there's no data to be displayed (it shouldn't crash initially when no book is selected).
+Now that the selected state property is stored in the BookList component, that piece of info should also be given to CommentArea as a prop; when selected changes (the user clicks on a new book) a new fetch should be performed and the comments on the right column of the page should update. You can achieve this using the componentDidUpdate() method, listening for any change in the selected prop.
+When the comments section works again, double check if the AddComment component also still works. Depending on your implementation, that may also need a little refactor in order to keep up-to-date the elementId property (that needs to be part of the body of your POST request) with the asin of the latest book you clicked on.
  
 
-EXTRA
-use React.Context for sharing at application level a theme property: the value of theme can be light or dark, and it should affect some styling property of the major components (MyNavbar, BookList, SingleBook etc.).
-Provide a way of toggling the theme value and check if the application responds correctly to the applied style.
