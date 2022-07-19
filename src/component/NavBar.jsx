@@ -1,11 +1,17 @@
 import { Navbar, Nav } from "react-bootstrap";
 
 const NavBar = () => (
+
+    
+
   <Navbar
-    collapseOnSelect
-    expand="lg"
-    bg="secondary"
-    variant="light shadow-lg bg-white rounded"
+  collapseOnSelect
+  expand="lg"
+  variant="dark"
+  style={{
+    background:
+      "linear-gradient(179deg, rgb(138 0 243) 10%, rgb(85 67 233) 50%, rgb(174 103 229) 100%)",
+  }}
   >
     <Navbar.Brand href="#home">Ezi Book Library</Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
